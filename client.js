@@ -16,6 +16,16 @@ const connect = () => {
 
   });
 
+  conn.on("connect", () => {
+    // let delay = 0;
+    // 3. Let's send it some movement instructions and delay them by about 50ms each
+    // setInterval(() => {
+    //   conn.write(`Move: up`);
+    // }, delay += 500);
+
+
+  });
+
   // Now we encode UTF-8 for interpreting characters
   conn.setEncoding("utf8");
 
