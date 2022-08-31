@@ -8,7 +8,12 @@ const connect = () => {
   });
 
   conn.on("connect", () => {
-    console.log(`Connected to server!`)
+    // 1. we want to notify a successful connection
+    console.log(`Succesfully connected to game server!`);
+
+    // 2. Now let's send the server our name in 3 initials
+    conn.write(`Name: SNK`); // think of this as (connection side, writes: ____ )
+
   });
 
   // Now we encode UTF-8 for interpreting characters
