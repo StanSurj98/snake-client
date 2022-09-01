@@ -1,3 +1,7 @@
+// In order to send our data back to server, we need something from the connection function in client
+// Stores the active TCP connection object.
+let connection;
+
 const handleUserInput = () => {
   // When we take in data from keyboard...
   process.stdin.on('data', (key) => {
@@ -5,11 +9,25 @@ const handleUserInput = () => {
     if (key === '\u0003') {
       process.exit();
     };
+    
+    if (key === "w") {
+      connection.write('Move: up');
+    }
+    if (key === "a") {
+      connection.write('Move: left');
+    }
+    if (key === "s") {
+      connection.write('Move: down');
+    }
+    if (key === "d") {
+      connection.write('Move: right');
+    }
   });
 };
 
 // setup the interface to handle user inputs from stdin
-const setupInput = () => {
+const setupInput = (conn) => {
+  connection = conn;  
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");

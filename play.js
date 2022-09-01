@@ -11,8 +11,8 @@ const {setupInput} = require("./input");
 
 // should appear at the top, 
 console.log(`Connecting...`); 
-// then we call the func to actually connect
-connect();
+
 
 // Next we call the setupInput for the UI
-setupInput();
+// Passing in the OBJECT RETURNED from connect function, this allows us to connect to the server and have the server take in our data
+setupInput(connect());
