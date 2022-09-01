@@ -9,19 +9,25 @@ const handleUserInput = () => {
     if (key === '\u0003') {
       process.exit();
     };
-    
+    // Movements
     if (key === "w") {
       connection.write('Move: up');
-    }
+    };
     if (key === "a") {
       connection.write('Move: left');
-    }
+    };
     if (key === "s") {
       connection.write('Move: down');
-    }
+    };
     if (key === "d") {
       connection.write('Move: right');
-    }
+    };
+
+    // Chatting
+    if (key === "g") {
+      connection.write(`Say: 2FAST`);
+    };
+
   });
 };
 
