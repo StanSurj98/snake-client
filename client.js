@@ -1,10 +1,12 @@
 const net = require('net');
+// import our constants
+const {IP, PORT} = require("./constants");
 
 // Establish connection to game server, in our case locally
 const connect = () => {
   const conn = net.createConnection({
-    host: 'localhost', // localhost in our case
-    port: 50541, // Set up our port num to be same as server's
+    host: IP, // localhost in our case
+    port: PORT, // Set up our port num to be same as server's
   });
 
   conn.on("connect", () => {

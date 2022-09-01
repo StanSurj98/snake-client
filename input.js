@@ -2,6 +2,10 @@
 // Stores the active TCP connection object.
 let connection;
 
+const { connect } = require("http2");
+// Let's import our movement keys
+const {MOVE_KEYS, CHAT_KEYS} = require("./constants");
+
 const handleUserInput = () => {
   // When we take in data from keyboard...
   process.stdin.on('data', (key) => {
@@ -10,22 +14,13 @@ const handleUserInput = () => {
       process.exit();
     };
     // Movements
-    if (key === "w") {
-      connection.write('Move: up');
-    };
-    if (key === "a") {
-      connection.write('Move: left');
-    };
-    if (key === "s") {
-      connection.write('Move: down');
-    };
-    if (key === "d") {
-      connection.write('Move: right');
+    if (key === "w" || key === "a" || key === "s" || key === "d") {
+      connection.write(`Move: ${MOVE_KEYS[key]}`);
     };
 
     // Chatting
-    if (key === "g") {
-      connection.write(`Say: 2FAST`);
+    if (key === "z" || key === "x" || key === "c" || key === "v" || key === "f") {
+      connection.write(`Say: ${CHAT_KEYS[key]}`);
     };
 
   });
